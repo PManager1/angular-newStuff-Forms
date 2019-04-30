@@ -9,6 +9,9 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   defaultQuestion = 'pet'; 
   answer = ''; 
+  genders = ['male', 'female']; 
+  genderSelected = 'male'; 
+  
   @ViewChild('f') signupForm:NgForm;
 
   onSubmit(){
