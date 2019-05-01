@@ -10,12 +10,26 @@ export class AppComponent {
   defaultQuestion = 'pet'; 
   answer = ''; 
   genders = ['male', 'female']; 
-  genderSelected = 'male'; 
+  genderSelected = 'male';
+  user = {
+    username:'', 
+    email: '', 
+    sercretQuestion: '', 
+    answer: '', 
+    gender: ''
+  };
   
   @ViewChild('f') signupForm:NgForm;
 
   onSubmit(){
-    console.log('signupForm =', this.signupForm);
+    console.log('25- signupForm =', this.signupForm);
+    console.log('26-  now lets update our html page with the values. ');
+    this.user.username = this.signupForm.value.userData.username; 
+    this.user.email = this.signupForm.value.userData.email; 
+    this.user.sercretQuestion = this.signupForm.value.sercret; 
+    this.user.answer = this.signupForm.value.questionAnswer; 
+    this.user.gender = this.signupForm.value.gender; 
+    console.log('32-  user = ', this.user);
   }
 
 
