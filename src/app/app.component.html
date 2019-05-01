@@ -71,6 +71,11 @@
         <button class="btn btn-primary" type="submit"
           [disabled]="!f.valid"
         >Submit</button>
+        <hr>
+
+        <button (click)="resetvalues()" class="btn btn-warning" type="submit"
+      >RESET Values</button>
+
       </form>
       <hr>
       <div class="row">
@@ -81,7 +86,6 @@
         <p> Secret Question: {{ user.sercretQuestion}}</p>
         <p> answer:  {{ user.answer}} </p>
         <p>Gender:  {{ user.gender}} </p>
-        
         </div>
       </div>
     </div>

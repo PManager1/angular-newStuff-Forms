@@ -32,6 +32,10 @@ export class AppComponent {
     console.log('32-  user = ', this.user);
   }
 
+  resetvalues(){
+    console.log( '  resetvalues()  called'); 
+    this.signupForm.reset(); 
+  }
 
   suggestUserName() {
     const suggestedName = 'Superuser';
