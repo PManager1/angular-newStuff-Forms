@@ -1,96 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div id="user-data" 
-            ngModelGroup="userData"
-            #userData="ngModelGroup"
-        >
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input 
-              ngModel
-              name="username"
-              type="text" 
-              id="username" 
-              required
-              class="form-control">
-          </div>
-          <button
-          (click)="suggestUserName()"
-          class="btn btn-default" type="button">Suggest an Username</button>
-          <div class="form-group">
-            <label for="email">Mail</label>
-            <input 
-              ngModel
-              name="email"
-              type="email" 
-              id="email" 
-              class="form-control"
-              email
-              #email="ngModel"
-              >
-          </div>
-          <span class="help-block" *ngIf="!email.valid && email.touched"> pls enter valid email </span>
-        </div>
-        <p *ngIf="!userData.valid && userData.touched"> user data is invalid </p>
+      <form>
         <div class="form-group">
-          <label for="secret">Secret Questions</label>
-          <select 
-            id="secret" 
-            class="form-control"
-            [ngModel]="defaultQuestion"
-            name="secret"
-          >
-            <option value="pet">Your first Pet?</option>
-            <option value="teacher">Your first teacher?</option>
-          </select>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control">
         </div>
-
         <div class="form-group">
-          <textarea 
-            name="questionAnswer" 
-            rows="3" 
-            [(ngModel)]="answer"
-            class="form-control" >            
-          </textarea>
+          <label for="email">email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control">
         </div>
-        <p> Your reply {{ answer}} </p>
-
         <div class="radio" *ngFor="let gender of genders">
-            <label for="gender">
-              <input 
-                type="radio"
-                name="gender"
-                ngModel
-                [value]= "gender">
-                {{ gender }} 
-            </label>
+          <label>
+            <input
+              type="radio"
+              [value]="gender">{{ gender }}
+          </label>
         </div>
-
-        <button class="btn btn-primary" type="submit"
-          [disabled]="!f.valid"
-        >Submit</button>
-        <hr>
-
-        <button (click)="resetvalues()" class="btn btn-warning" type="submit"
-      >RESET Values</button>
-
+        <button class="btn btn-primary" type="submit">Submit</button>
       </form>
-      <hr>
-      <div class="row">
-      <div class="col-xs-12">
-      <h3> Your Data </h3>
-        <p>user name: {{ user.username}} </p>
-        <p>mail address: {{ user.email}} </p>
-        <p> Secret Question: {{ user.sercretQuestion}}</p>
-        <p> answer:  {{ user.answer}} </p>
-        <p>Gender:  {{ user.gender}} </p>
-        </div>
-      </div>
     </div>
   </div>
-
-
-
 </div>
